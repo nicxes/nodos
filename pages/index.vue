@@ -19,6 +19,7 @@
           type="email"
           placeholder="Coloca aquí tu correo electrónico"
           class="mb-6"
+          :required="true"
         />
 
         <label class="font-input font-medium block mb-4">
@@ -29,14 +30,14 @@
           type="password"
           placeholder="Coloca aquí tu contraseña"
           class="mb-6"
+          :required="true"
         />
 
-        <button
+        <v-button
           type="submit"
-          class="bg-primary text-white text-sm uppercase py-3 rounded-[10px] block w-full mb-6"
         >
           Ingresar
-        </button>
+        </v-button>
 
         <p class="text-center">
           <NuxtLink to="/" class="text-sm text-[#565656]">
@@ -48,6 +49,14 @@
     </div>
   </section>
 </template>
+
+<script>
+export default {
+  head: {
+    title: 'Ingresar'
+  }
+}
+</script>
 
 <style scoped>
   form {
