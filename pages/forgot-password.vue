@@ -3,7 +3,7 @@
     <div class="container mx-auto flex justify-center">
 
       <form
-        @submit.prevent="login"
+        @submit.prevent="recovery"
         class="bg-neutral-50 rounded-3xl max-w-[461px] py-10 px-16"
       >
         <div class="flex justify-center mb-6">
@@ -11,7 +11,7 @@
         </div>
 
         <p class="text-sm font-display text-[#646464] text-center mb-6">
-          Te damos la bienvenida a [producto], coloca tus datos para ingresar
+          Coloca tu correo electrónico para recuperar tu contraseña. Recibirás un correro para blanquearla.
         </p>
 
         <label for="email" class="font-input font-medium block mb-4">
@@ -23,20 +23,6 @@
           v-model="form.data.email"
           type="email"
           placeholder="Coloca aquí tu correo electrónico"
-          class="mb-6"
-          :required="true"
-          :disabled="form.loading"
-        />
-
-        <label for="password" class="font-input font-medium block mb-4">
-          Contraseña
-        </label>
-
-        <v-input
-          id="password"
-          v-model="form.data.password"
-          type="password"
-          placeholder="Coloca aquí tu contraseña"
           class="mb-6"
           :required="true"
           :disabled="form.loading"
@@ -61,12 +47,6 @@
             Ingresar
           </span>
         </v-button>
-
-        <p class="text-center">
-          <NuxtLink to="/forgot-password" class="text-sm text-[#565656]">
-            ¿Olvidaste tu contraseña? Te ayudamos.
-          </NuxtLink>
-        </p>
       </form>
 
     </div>
@@ -76,22 +56,21 @@
 <script>
 export default {
   head: {
-    title: 'Ingresar'
+    title: 'Recuperar Contraseña'
   },
   data () {
     return {
       form: {
         loading: false,
         data: {
-          email: '',
-          password: ''
+          email: ''
         }
       }
     }
   },
   methods: {
-    login () {
-      if (this.form.data.email || this.form.data.password) {
+    recovery () {
+      if (this.form.data.email) {
         this.form.loading = true
         console.log('loading')
       }
@@ -101,7 +80,7 @@ export default {
 </script>
 
 <style scoped>
-  form {
-    box-shadow: 3px 5px 10px rgba(0, 0, 0, 0.05);
-  }
+form {
+  box-shadow: 3px 5px 10px rgba(0, 0, 0, 0.05);
+}
 </style>

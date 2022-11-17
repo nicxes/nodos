@@ -4,7 +4,7 @@
     :to="to"
     :href="href"
     :type="type"
-    class="text-white text-sm uppercase py-3 rounded-[10px] block w-full mb-6 disabled:opacity-70 disabled:cursor-not-allowed"
+    class="text-white text-sm font-semibold uppercase py-3 rounded-[10px] block w-full mb-6 disabled:opacity-70 disabled:cursor-not-allowed"
     :class="[
       { 'bg-primary': primary },
       { 'bg-success': success },
