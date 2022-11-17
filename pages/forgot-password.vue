@@ -1,10 +1,12 @@
 <template>
-  <section class="h-screen flex items-center justify-center">
+  <main class="h-screen flex items-center justify-center transition duration-150 ease-in-out" :class="form.success ? 'bg-success' : 'bg-transparent'">
     <div class="container mx-auto flex justify-center">
 
       <form
+        v-if="!form.success"
         @submit.prevent="recovery"
-        class="bg-neutral-50 rounded-3xl max-w-[461px] py-10 px-16"
+        class="bg-neutral-50 rounded-3xl max-w-[461px] py-10 px-16 transition duration-150 ease-in-out"
+        :class="form.success ? 'opacity-0' : 'opacity-100'"
       >
         <div class="flex justify-center mb-6">
           <Logo />
@@ -49,8 +51,14 @@
         </v-button>
       </form>
 
+      <div v-else class="flex justify-center items-center flex-col">
+        <img src="~assets/images/icons/success.svg" class="mb-7"/>
+        <h1 class="font-body text-3xl text-white mb-4 font-semibold mb-4">¡Listo!</h1>
+        <p class="font-display text-lg text-white max-w-[286px] text-center">Enviamos un mail para que cambies tu contraseña.</p>
+      </div>
+
     </div>
-  </section>
+  </main>
 </template>
 
 <script>
@@ -61,7 +69,10 @@ export default {
   data () {
     return {
       form: {
+        error: false,
+        success: false,
         loading: false,
+        hidden: false,
         data: {
           email: ''
         }
@@ -73,6 +84,9 @@ export default {
       if (this.form.data.email) {
         this.form.loading = true
         console.log('loading')
+        setTimeout(() => {
+          this.form.success = true
+        }, 3000)
       }
     }
   }

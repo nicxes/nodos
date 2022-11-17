@@ -1,5 +1,5 @@
 <template>
-  <section class="h-screen flex items-center justify-center">
+  <main class="h-screen flex items-center justify-center">
     <div class="container mx-auto flex justify-center">
 
       <form
@@ -70,7 +70,7 @@
       </form>
 
     </div>
-  </section>
+  </main>
 </template>
 
 <script>

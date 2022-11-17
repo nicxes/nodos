@@ -33,7 +33,9 @@ export default {
 		// https://go.nuxtjs.dev/eslint
 		'@nuxtjs/eslint-module',
 		// https://github.com/nuxt/postcss8
-		'@nuxt/postcss8'
+		'@nuxt/postcss8',
+		// https://github.com/nuxt-community/svg-module
+		'@nuxtjs/svg'
 	],
 	// Modules: https://go.nuxtjs.dev/config-modules
 	modules: [

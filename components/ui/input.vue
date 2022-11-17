@@ -32,6 +32,11 @@ export default {
       type: Boolean,
       default: false,
       required: false
+    },
+    disabled: {
+      type: Boolean,
+      default: false,
+      required: false
     }
   },
   methods: {
