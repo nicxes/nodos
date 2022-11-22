@@ -1,10 +1,9 @@
 <template>
   <main class="h-screen flex items-center justify-center">
     <div class="container mx-auto flex justify-center">
-
       <form
+        class="bg-neutral-50 rounded-3xl max-w-[461px] py-10 px-16 w-full"
         @submit.prevent="login"
-        class="bg-neutral-50 rounded-3xl max-w-[461px] py-10 px-16"
       >
         <div class="flex justify-center mb-6">
           <Logo />
@@ -53,7 +52,7 @@
                 stroke="currentColor"
                 stroke-width="4"
               />
-              <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+              <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z" />
             </svg>
           </span>
 
@@ -68,16 +67,12 @@
           </NuxtLink>
         </p>
       </form>
-
     </div>
   </main>
 </template>
 
 <script>
 export default {
-  head: {
-    title: 'Ingresar'
-  },
   data () {
     return {
       form: {
@@ -89,11 +84,13 @@ export default {
       }
     }
   },
+  head: {
+    title: 'Ingresar'
+  },
   methods: {
     login () {
       if (this.form.data.email || this.form.data.password) {
         this.form.loading = true
-        console.log('loading')
       }
     }
   }

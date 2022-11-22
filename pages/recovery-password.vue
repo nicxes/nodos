@@ -12,18 +12,32 @@
         </div>
 
         <p class="text-sm font-display text-[#646464] text-center mb-6">
-          Coloca tu correo electrónico para recuperar tu contraseña. Recibirás un correro para blanquearla.
+          Coloca tu nueva contraseña.
         </p>
 
-        <label for="email" class="font-input font-medium block mb-4">
-          Usuario
+        <label for="password" class="font-input font-medium block mb-4">
+          Nueva contraseña
         </label>
 
         <v-input
-          id="email"
-          v-model="form.data.email"
-          type="email"
-          placeholder="Coloca aquí tu correo electrónico"
+          id="password"
+          v-model="form.data.password"
+          type="password"
+          placeholder="Coloca aquí tu nueva contraseña"
+          class="mb-6"
+          :required="true"
+          :disabled="form.loading"
+        />
+
+        <label for="confirm_password" class="font-input font-medium block mb-4">
+          Repite la nueva contraseña
+        </label>
+
+        <v-input
+          id="confirm_password"
+          v-model="form.data.confirm_password"
+          type="password"
+          placeholder="Coloca aquí tu nueva contraseña"
           class="mb-6"
           :required="true"
           :disabled="form.loading"
@@ -45,7 +59,7 @@
           </span>
 
           <span v-else>
-            Recuperar contraseña
+            Confirmar
           </span>
         </v-button>
       </form>
@@ -73,7 +87,8 @@ export default {
         loading: false,
         hidden: false,
         data: {
-          email: ''
+          password: '',
+          confirm_password: ''
         }
       }
     }
