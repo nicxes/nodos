@@ -28,6 +28,14 @@ export default {
           path: '/dashboard'
         },
         {
+          label: 'Empresas',
+          path: '/companies'
+        },
+        {
+          label: 'Seguridad',
+          path: '/security'
+        },
+        {
           label: 'Servicios',
           path: '/services'
         },

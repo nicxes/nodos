@@ -1,14 +1,17 @@
 <template>
-  <div>
+  <div class="pb-12">
     <h3 class="font-input text-2xl font-semibold mb-8">
       Últimas reservas
     </h3>
 
-    <table class="table-auto w-full">
+    <table class="table-auto w-full mb-10">
       <thead class="mb-2">
         <tr>
           <th class="font-display text-[#B7B9C1] font-semibold text-sm">
             ID Reserva
+          </th>
+          <th class="font-display text-[#B7B9C1] font-semibold text-sm">
+            Empresa
           </th>
           <th class="font-display text-[#B7B9C1] font-semibold text-sm">
             Titular de la Reserva
@@ -39,6 +42,9 @@
             {{ item.id }}
           </td>
           <td class="font-bold">
+            {{ item.company }}
+          </td>
+          <td class="font-bold">
             {{ item.title }}
           </td>
           <td>{{ item.from }}</td>
@@ -51,11 +57,13 @@
         </tr>
       </tbody>
     </table>
-    <div>
-      <v-button>
+
+    <div class="flex justify-end">
+      <v-button class="max-w-[222px]">
         Ver todas las reservas
       </v-button>
     </div>
+
   </div>
 </template>
 
@@ -66,6 +74,7 @@ export default {
       table: [
         {
           id: 0,
+          company: 'Empresa #1',
           title: 'Tomás Gimenez',
           from: '20/10/2022',
           to: '22/10/2022',
@@ -75,6 +84,7 @@ export default {
         },
         {
           id: 1,
+          company: 'Empresa #2',
           title: 'Manuel Cotado',
           from: '20/10/2022',
           to: '22/10/2022',
@@ -84,6 +94,7 @@ export default {
         },
         {
           id: 2,
+          company: 'Empresa #3',
           title: 'Manuel Cotado',
           from: '20/10/2022',
           to: '22/10/2022',
