@@ -2,7 +2,9 @@
   <aside class="bg-white flex flex-col justify-between fixed top-0 left-0 bottom-0 h-full w-full max-w-[247px]">
     <div>
       <div class="flex justify-center py-8 mb-4">
-        <Logo />
+        <NuxtLink to="/dashboard">
+          <Logo />
+        </NuxtLink>
       </div>
 
       <nav class="list-none p-0 m-0 flex flex-col gap-4">
