@@ -1,5 +1,5 @@
 <template>
-  <section class="mt-14">
+  <section class="pt-14">
     <div class="container mx-auto">
       <Back />
       <Title

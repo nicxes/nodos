@@ -1,5 +1,5 @@
 <template>
-  <div class="grid grid-cols-[274px_auto] min-h-screen bg-neutral-50">
+  <div class="min-h-screen bg-neutral-50 ml-[247px]">
     <Navigation />
     <main>
       <Nuxt />

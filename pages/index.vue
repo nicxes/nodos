@@ -41,7 +41,7 @@
           :disabled="form.loading"
         />
 
-        <v-button type="submit" :disabled="form.loading">
+        <v-button type="submit" :disabled="form.loading" class="mb-4">
           <span v-if="form.loading" class="flex justify-center">
             <svg class="animate-spin h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
               <circle
@@ -91,6 +91,10 @@ export default {
     login () {
       if (this.form.data.email || this.form.data.password) {
         this.form.loading = true
+        setTimeout(() => {
+          this.$router.push('/dashboard')
+          this.form.loading = false
+        }, 1500)
       }
     }
   }

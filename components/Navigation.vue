@@ -1,5 +1,5 @@
 <template>
-  <aside class="h-full bg-white flex flex-col justify-between">
+  <aside class="bg-white flex flex-col justify-between fixed top-0 left-0 bottom-0 h-full w-full max-w-[247px]">
     <div>
       <div class="flex justify-center py-8 mb-4">
         <Logo />
@@ -71,13 +71,20 @@ export default {
             },
             {
               label: 'Habilitaciones',
-              path: '/companies/edit'
+              path: '/companies/activations'
             }
           ]
         },
         {
           label: 'Seguridad',
-          path: '/security'
+          path: '/users',
+          dropdown: false,
+          sublinks: [
+            {
+              label: 'Listado de Usuarios',
+              path: '/users'
+            }
+          ]
         },
         {
           label: 'Servicios',
