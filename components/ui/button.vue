@@ -4,14 +4,16 @@
     :to="to"
     :href="href"
     :type="type"
-    class="text-white text-sm font-semibold uppercase py-3 rounded-[10px] block w-full disabled:opacity-70 disabled:cursor-not-allowed"
+    class="text-sm font-semibold py-3 rounded-[10px] block w-full disabled:opacity-70 disabled:cursor-not-allowed"
     :class="[
-      { 'bg-primary': primary },
-      { 'bg-success': success },
-      { 'bg-error': error }
+      { 'bg-primary text-white ': primary },
+      { 'bg-[#F5F7FB] text-[#5C5C5C]': secondary },
+      { 'bg-success text-white ': success },
+      { 'bg-error text-white ': error },
+      { 'uppercase': uppercase }
     ]"
-    @click="$emit('click')"
     :disabled="disabled"
+    @click="$emit('click')"
   >
     <slot />
   </component>
@@ -44,11 +46,19 @@ export default {
       type: Boolean,
       default: false,
       required: false
+    },
+    uppercase: {
+      type: Boolean,
+      default: true,
+      required: false
     }
   },
   computed: {
     primary () {
       return this.color === 'primary'
+    },
+    secondary () {
+      return this.color === 'secondary'
     },
     success () {
       return this.color === 'success'

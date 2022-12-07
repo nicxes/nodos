@@ -59,6 +59,7 @@
         </template>
       </Table>
     </div>
+    <Modal />
   </section>
 </template>
 
