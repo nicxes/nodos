@@ -48,7 +48,11 @@
               301111111115
             </td>
             <td class="text-right last-of-type:rounded-tr-[20px] last-of-type:rounded-br-[20px] pr-[25px]">
-              Habilitada
+              <v-switch :id="index" :name="index">
+                <template v-slot:label>
+                  Habilitada
+                </template>
+              </v-switch>
             </td>
           </tr>
         </template>
