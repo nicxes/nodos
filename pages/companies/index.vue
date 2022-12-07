@@ -36,7 +36,8 @@
           <tr
             v-for="(item, index) in 5"
             :key="index"
-            class="bg-white text-[#5C5C5C] text-sm font-body h-[75px]"
+            class="bg-white hover:bg-white/10 text-[#5C5C5C] text-sm font-body h-[75px] cursor-pointer"
+            @click="$router.push('/companies/edit')"
           >
             <td class="font-bold first-of-type:rounded-tl-[20px] first-of-type:rounded-bl-[20px] pl-[25px]">
               {{ index }}
@@ -48,7 +49,7 @@
               301111111115
             </td>
             <td class="text-right last-of-type:rounded-tr-[20px] last-of-type:rounded-br-[20px] pr-[25px]">
-              <v-switch :id="index" :name="index">
+              <v-switch :id="index.toString()" :name="index.toString()">
                 <template v-slot:label>
                   Habilitada
                 </template>

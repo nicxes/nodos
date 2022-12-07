@@ -9,6 +9,7 @@
       :id="id"
       :name="name"
       class="hidden"
+      @input="onInput"
     />
   </div>
 </template>
@@ -31,6 +32,11 @@ export default {
     return {
       value: false
     }
+  },
+  methods: {
+    onInput () {
+      this.$emit('input', this.value)
+    }
   }
 }
 </script>
@@ -41,7 +47,7 @@ export default {
     content: '';
     height: 23px;
     width: 50px;
-    background: #FAFAFA;
+    background: #efefef;
     border-radius: 100px;
     display: inline-block;
     margin-left: 10px;
@@ -61,9 +67,9 @@ export default {
     border-radius: 100px;
     display: inline-block;
     transition: all 150ms ease-in-out;
-    transform: translateX(0);
+    transform: translateX(-25px);
   }
   label.active:before {
-    transform: translateX(-25px);
+    transform: translateX(0px);
   }
 </style>
