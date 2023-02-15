@@ -1,6 +1,5 @@
 <template>
   <div>
-    <Header />
-    <News />
+    123
   </div>
 </template>

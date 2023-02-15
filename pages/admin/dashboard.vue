@@ -5,18 +5,16 @@
         ¡Hola, Tomás! 👋
       </h1>
 
-      <News />
       <Lasted />
     </div>
   </section>
 </template>
 
 <script>
-import News from '@/components/dashboard/News'
 import Lasted from '@/components/dashboard/Lasted'
 
 export default {
-  components: { News, Lasted },
+  components: { Lasted },
   layout: 'app',
   head: {
     title: 'Inicio'
