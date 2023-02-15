@@ -81,7 +81,7 @@
 
                   <div class="grid grid-cols-2 items-center">
                     <h5 class="text-sm">
-                      Precio sugerido desde <b>${{ roundNumber(data.attributes.price) }} por noche</b>
+                      Precio sugerido desde <b>{{ data.attributes.price_currency }} ${{ roundNumber(data.attributes.price) }}</b>
                     </h5>
 
                     <button type="button" class="text-white text-[15px] font-bold bg-[#35BC75] px-3 py-3 rounded-[10px]">

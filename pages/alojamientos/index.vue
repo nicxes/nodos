@@ -17,7 +17,7 @@
               <div class="flex justify-end">
                 <NuxtLink :to="`/alojamientos/${item.id}`" class="bg-[#35BC75] text-center text-white inline-block px-4 py-2 rounded-[10px]">
                   Ver opciones desde<br/>
-                  <b>AR$15.000 por noche</b>
+                  <b>{{ item.attributes.price_currency }} ${{ roundNumber(item.attributes.price) }}</b>
                 </NuxtLink>
               </div>
             </div>
@@ -48,6 +48,9 @@ export default {
         .catch((err) => {
           console.log(err)
         })
+    },
+    roundNumber (number) {
+      return Math.round(number)
     }
   }
 }
