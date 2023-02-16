@@ -1,6 +1,7 @@
 <template>
   <div>
     <Navbar />
+    <Navigation />
     <main class="bg-[#FAFAFA]">
       <Nuxt />
     </main>

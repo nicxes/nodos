@@ -48,7 +48,7 @@
             </button>
 
             <p class="text-center text-sm md:hidden">
-              Al buscar aceptas <b>términos y condiciones</b>.
+              Al buscar aceptas <NuxtLink to="/terminos" class="font-bold">términos y condiciones</NuxtLink>.
             </p>
           </div>
         </form>

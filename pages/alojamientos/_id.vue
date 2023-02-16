@@ -148,7 +148,7 @@ import 'swiper/swiper-bundle.min.css'
 
 export default {
   async asyncData ({ params, $axios }) {
-    const res = await $axios.$get(`http://turismo.catam.ar/api/v1/producto_turistico/${params.id}`)
+    const res = await $axios.$get(`https://turismo.catam.ar/api/v1/producto_turistico/${params.id}`)
     const data = res.data
     return { data }
   },

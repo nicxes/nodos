@@ -40,7 +40,7 @@ export default {
   },
   methods: {
     getData () {
-      this.$axios.$get('http://turismo.catam.ar/api/v1/producto_turistico/?page=1')
+      this.$axios.$get('https://turismo.catam.ar/api/v1/producto_turistico/?page=1')
         .then((res) => {
           this.data = res.data
           console.log(this.data)
