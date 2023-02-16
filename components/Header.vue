@@ -62,6 +62,7 @@ export default {
   methods: {
     handleSubmit () {
       console.log('Handle submit event triggered')
+      this.$router.push('/alojamientos')
     }
   }
 }
