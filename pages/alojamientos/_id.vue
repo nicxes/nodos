@@ -84,7 +84,7 @@
                       Precio sugerido desde <b>{{ data.attributes.price_currency }} ${{ roundNumber(data.attributes.price) }}</b>
                     </h5>
 
-                    <button type="button" class="text-white text-[15px] font-bold bg-[#35BC75] px-3 py-3 rounded-[10px]">
+                    <button @click="addReservartion" type="button" class="text-white text-[15px] font-bold bg-[#35BC75] px-3 py-3 rounded-[10px]">
                       Elegir esta opción
                     </button>
                   </div>
@@ -163,6 +163,9 @@ export default {
   methods: {
     roundNumber (number) {
       return Math.round(number)
+    },
+    addReservartion () {
+      this.$router.push(`/reservas/resumen/?id=${this.data.id}`)
     }
   }
 }

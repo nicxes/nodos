@@ -1,5 +1,5 @@
 <template>
-  <aside class="fixed top-0 right-0 z-50 flex justify-end w-full h-full transition duration-150 ease-in-out transform" :class="$store.state.open ? 'translate-x-0' : 'translate-x-[100%]'">
+  <aside class="fixed top-0 right-0 z-50 flex justify-end w-full h-full transition duration-150 ease-in-out transform" :class="$store.state.isMainMenuOpen ? 'translate-x-0' : 'translate-x-[100%]'">
     <div class="bg-[#fff] p-7 max-w-[304px] w-full h-full">
       <div class="flex justify-end mb-11">
         <button @click="toggleMenu">

@@ -43,6 +43,7 @@ export default {
     '@nuxtjs/axios'
   ],
   plugins: [
+    { src: '~/plugins/v-calendar.js', mode: 'client' }
   ],
   loadingIndicator: {
     color: '#35BC75'

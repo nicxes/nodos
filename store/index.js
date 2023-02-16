@@ -1,9 +1,9 @@
 export const state = () => ({
-  open: false
+  isMainMenuOpen: false
 })
 
 export const mutations = {
   toggle (state) {
-    state.open = !state.open
+    state.isMainMenuOpen = !state.isMainMenuOpen
   }
 }
