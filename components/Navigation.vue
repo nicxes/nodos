@@ -11,24 +11,24 @@
 
       <ul class="flex flex-col gap-6 md:flex font-display">
         <li>
-          <NuxtLink to="/" class="text-[#646464] hover:text-[#35BC75] transition duration-150 ease-in-out" active-class="text-[#35BC75]">
+          <a @click="go('/')" class="text-[#646464] hover:text-[#35BC75] transition duration-150 ease-in-out" :class="$route.name === 'index' ? 'text-[#35BC75]' : null">
             Inicio
-          </NuxtLink>
+          </a>
         </li>
         <li>
-          <NuxtLink to="/mi-reserva" class="text-[#646464] hover:text-[#35BC75] transition duration-150 ease-in-out" active-class="text-[#35BC75]">
+          <a @click="go('/reservas')" class="text-[#646464] hover:text-[#35BC75] transition duration-150 ease-in-out" :class="$route.name === 'reservas' ? 'text-[#35BC75]' : null">
             Mi reserva
-          </NuxtLink>
+          </a>
         </li>
         <li>
-          <NuxtLink to="/privacidad" class="text-[#646464] hover:text-[#35BC75] transition duration-150 ease-in-out" active-class="text-[#35BC75]">
+          <a @click="go('/privacidad')" class="text-[#646464] hover:text-[#35BC75] transition duration-150 ease-in-out" :class="$route.name === 'privacidad' ? 'text-[#35BC75]' : null">
             Política de Privacidad
-          </NuxtLink>
+          </a>
         </li>
         <li>
-          <NuxtLink to="/terminos" class="text-[#646464] hover:text-[#35BC75] transition duration-150 ease-in-out" active-class="text-[#35BC75]">
+          <a @click="go('/terminos')" class="text-[#646464] hover:text-[#35BC75] transition duration-150 ease-in-out" :class="$route.name === 'terminos' ? 'text-[#35BC75]' : null">
             Términos y condiciones
-          </NuxtLink>
+          </a>
         </li>
       </ul>
     </div>
@@ -40,6 +40,10 @@ export default {
   methods: {
     toggleMenu () {
       this.$store.commit('toggle')
+    },
+    go (route) {
+      this.$router.push(route)
+      this.toggleMenu()
     }
   }
 }

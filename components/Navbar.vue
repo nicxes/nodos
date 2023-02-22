@@ -25,7 +25,7 @@
             </NuxtLink>
           </li>
           <li>
-            <NuxtLink to="/mi-reserva" class="text-[#646464] hover:text-[#35BC75] transition duration-150 ease-in-out" active-class="text-[#35BC75]">
+            <NuxtLink to="/reservas" class="text-[#646464] hover:text-[#35BC75] transition duration-150 ease-in-out" active-class="text-[#35BC75]">
               Mi reserva
             </NuxtLink>
           </li>

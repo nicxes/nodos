@@ -1,5 +1,5 @@
 <template>
-  <header class="Header mt-7 md:mt-0">
+  <header class="Header pt-7 md:pt-0 md:mt-0">
     <div class="bg-[#ddd] h-[480px] hidden md:block">
       <img src="" alt=""/>
     </div>
@@ -13,15 +13,8 @@
           Encontrá la mejor opción para hospedarte en <b>Posadas</b>
         </p>
 
-        <form @submit.prevent="handleSubmit" class="max-w-[1000px] mx-auto grid grid-cols-1 md:grid-cols-4 gap-y-4 font-display">
-          <div class="hidden md:block">
-            <input
-              placeholder="¿A dónde quieres viajar?"
-              class="py-4 px-4 rounded-[10px] block w-full outline-0 placeholder:text-sm placeholder:text-[#2A2D34]"
-            />
-          </div>
-
-          <div>
+        <form @submit.prevent="handleSubmit" class="max-w-[800px] mx-auto grid grid-cols-1 md:grid-cols-3 gap-y-4 md:gap-x-4 font-display">
+          <div class="md:col-span-2">
             <v-date-picker
               v-model="range"
               color="green"
@@ -31,11 +24,11 @@
               is-range
             >
               <template v-slot="{ inputValue, inputEvents }">
-                <div class="grid grid-cols-2 gap-2">
+                <div class="grid grid-cols-2 gap-2 md:gap-4">
                   <div>
                     <input
                       placeholder="Fecha de entrada"
-                      class="text-sm py-4 px-4 rounded-[10px] block w-full outline-0 placeholder:text-sm placeholder:text-[#2A2D34]"
+                      class="text-sm font-semibold py-4 px-4 rounded-[10px] block w-full outline-0 placeholder:text-sm placeholder:text-[#2A2D34] placeholder:font-normal"
                       :value="inputValue.start"
                       v-on="inputEvents.start"
                       required
@@ -44,7 +37,7 @@
                   <div>
                     <input
                       placeholder="Fecha de salida"
-                      class="text-sm py-4 px-4 rounded-[10px] block w-full outline-0 placeholder:text-sm placeholder:text-[#2A2D34]"
+                      class="text-sm font-semibold py-4 px-4 rounded-[10px] block w-full outline-0 placeholder:text-sm placeholder:text-[#2A2D34] placeholder:font-normal"
                       :value="inputValue.end"
                       v-on="inputEvents.end"
                       required
@@ -58,14 +51,15 @@
           <div class="col-span-2 md:col-span-1">
             <input
               v-model="passengers"
+              min="0"
               type="number"
               placeholder="Pasajeros"
-              class="text-sm py-4 px-4 rounded-[10px] block w-full outline-0 placeholder:text-sm placeholder:text-[#2A2D34]"
+              class="text-sm font-semibold py-4 px-4 rounded-[10px] block w-full outline-0 placeholder:text-sm placeholder:text-[#2A2D34] placeholder:font-normal"
               required
             />
           </div>
 
-          <div class="col-span-2 md:col-span-4 md:flex justify-end md:mt-4">
+          <div class="col-span-2 md:col-span-4 md:flex justify-end md:mt-4 md:mr-4">
             <button type="submit" class="text-white font-bold bg-[#35BC75] rounded-[10px] w-full md:w-[165px] py-4 md:py-2 mb-7 md:mb-0">
               Buscar
             </button>
