@@ -4,7 +4,7 @@
       <img src="" alt=""/>
     </div>
 
-    <div class="container mx-auto">
+    <div class="container mx-auto md:h-[200px]">
       <div class="Search bg-[#F1EDE3] py-7 md:py-12 px-4 md:px-11 relative md:top-[-150px] rounded-3xl">
         <h3 class="text-[#226B2F] text-xl md:text-2xl text-center font-bold mb-4">
           ¿Estás buscando alojamiento?

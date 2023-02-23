@@ -1,23 +1,23 @@
 <template>
   <section class="pb-12">
-    <div class="mb-4">
+    <div class="mb-4 md:container md:mx-auto md:max-w-[800px]">
       <client-only>
         <div ref="swiperImages" class="swiper">
           <div class="swiper-wrapper">
             <div class="swiper-slide">
-              <img :src="data.attributes.objeto.attributes.image_url" />
+              <img :src="data.attributes.objeto.attributes.image_url" class="md:rounded-b-3xl" />
             </div>
           </div>
         </div>
       </client-only>
     </div>
 
-    <div class="container mx-auto">
+    <div class="container mx-auto max-w-[800px]">
       <div>
-        <h1 class="mb-2 text-xl font-bold">
+        <h1 class="mb-5 text-xl font-bold md:px-4">
           {{ data.attributes.objeto.attributes.name }}
         </h1>
-        <h2 class="text-[#919191] mb-5">
+        <h2 class="hidden text-[#919191] mb-5">
           Hotel de 4 estrellas a 1.2 Km. del centro
         </h2>
 
@@ -30,7 +30,7 @@
           </p>
         </div>
 
-        <div class="bg-[#F7F7F7] p-4 mb-5">
+        <div class="hidden bg-[#F7F7F7] p-4 mb-5">
           <h3 class="text-xl font-bold mb-3">
             Condiciones
           </h3>
@@ -39,7 +39,7 @@
           </p>
         </div>
 
-        <div class="bg-[#F7F7F7] p-4 mb-5">
+        <div class="hidden bg-[#F7F7F7] p-4 mb-5">
           <h3 class="text-xl font-bold mb-3">
             Horarios
           </h3>
@@ -71,13 +71,15 @@
           <div ref="swiper" class="swiper">
             <div class="swiper-wrapper">
               <div class="swiper-slide">
-                <article class="bg-[#F7F7F7] p-4">
-                  <h4 class="text-xl font-bold mb-3">
-                    {{ data.attributes.name }}
-                  </h4>
-                  <p class="text-sm mb-5">
-                    {{ data.attributes.description }}
-                  </p>
+                <article class="bg-[#F7F7F7] p-4 h-full flex flex-col justify-between rounded-[10px]">
+                  <div>
+                    <h4 class="text-xl font-bold mb-3">
+                      {{ data.attributes.name }}
+                    </h4>
+                    <p class="text-sm mb-5">
+                      {{ data.attributes.description }}
+                    </p>
+                  </div>
 
                   <div class="grid grid-cols-2 items-center">
                     <h5 class="text-sm">
@@ -155,7 +157,14 @@ export default {
   async mounted () {
     await this.$nextTick()
     new Swiper(this.$refs.swiper, {
-      spaceBetween: 16
+      slidesPerView: 1,
+      spaceBetween: 16,
+      breakpoints: {
+        768: {
+          slidesPerView: 2,
+          spaceBetween: 16
+        }
+      }
     })
 
     new Swiper(this.$refs.swiperImages, {})
@@ -170,3 +179,9 @@ export default {
   }
 }
 </script>
+
+<style scoped>
+.swiper-slide {
+  height: auto;
+}
+</style>

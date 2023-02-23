@@ -1,10 +1,16 @@
 export const state = () => ({
   cart: {
-    date_entry: null,
-    date_exit: null,
+    start: null,
+    end: null,
     passengers: null
   }
 })
+
+export const getters = {
+  getCart: (state) => {
+    return state.cart
+  }
+}
 
 export const mutations = {
   setCart (state, data) {

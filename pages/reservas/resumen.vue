@@ -1,6 +1,6 @@
 <template>
   <section class="py-6 font-display">
-    <div class="container mx-auto">
+    <div class="container max-w-[800px] mx-auto">
       <div class="bg-[#F1EDE3] p-4 rounded-[20px] mb-4">
         <h3 class="text-[#226B2F] font-bold mb-2">
           Solicitud de Reserva
@@ -32,9 +32,19 @@
         <div class="grid grid-cols-1 gap-2.5">
           <div>
             <input
-              placeholder="Nombre y Apellido"
+              placeholder="Nombre"
               type="text"
               class="bg-white px-3 py-4 rounded-[10px] w-full placeholder-black placeholder:text-sm outline-0"
+              required
+            />
+          </div>
+
+          <div>
+            <input
+              placeholder="Apellido"
+              type="text"
+              class="bg-white px-3 py-4 rounded-[10px] w-full placeholder-black placeholder:text-sm outline-0"
+              required
             />
           </div>
 
@@ -43,6 +53,7 @@
               placeholder="DNI"
               type="number"
               class="bg-white px-3 py-4 rounded-[10px] w-full placeholder-black placeholder:text-sm outline-0"
+              required
             />
           </div>
 
@@ -89,30 +100,48 @@
       </div>
 
       <div class="bg-[#F7F7F7] p-4 mb-4">
-        <h3 class="text-[#226B2F] font-bold mb-3">
-          Otros Pasajeros
-        </h3>
-        <p class="text-sm mb-2.5">
-          Datos del Pasajero #2
-        </p>
+        <div class="flex justify-between mb-3">
+          <h3 class="text-[#226B2F] font-bold">
+            Otros Pasajeros
+          </h3>
 
-        <div class="grid grid-cols-1 gap-2.5">
-          <div>
-            <input
-              placeholder="Nombre y Apellido"
-              type="text"
-              class="bg-white px-3 py-4 rounded-[10px] w-full placeholder-black placeholder:text-sm outline-0"
-            />
-          </div>
-
-          <div>
-            <input
-              placeholder="DNI"
-              type="number"
-              class="bg-white px-3 py-4 rounded-[10px] w-full placeholder-black placeholder:text-sm outline-0"
-            />
-          </div>
+          <button @click="addPassenger" class="text-[#226B2F] font-bold cursor-pointer">
+            +
+          </button>
         </div>
+        <ul class="grid grid-cols-1 gap-6">
+          <li v-for="(passenger, index) in passengers" :key="index">
+            <p class="text-sm mb-2.5">
+              Datos del Pasajero #{{ index + 1 }}
+            </p>
+            <div class="grid grid-cols-1 gap-2.5">
+              <div>
+                <input
+                  v-model="passenger.nombre"
+                  placeholder="Nombre"
+                  type="text"
+                  class="bg-white px-3 py-4 rounded-[10px] w-full placeholder-black placeholder:text-sm outline-0"
+                />
+              </div>
+              <div>
+                <input
+                  v-model="passenger.apellido"
+                  placeholder="Apellido"
+                  type="text"
+                  class="bg-white px-3 py-4 rounded-[10px] w-full placeholder-black placeholder:text-sm outline-0"
+                />
+              </div>
+              <div>
+                <input
+                  v-model="passenger.dni"
+                  placeholder="DNI"
+                  type="number"
+                  class="bg-white px-3 py-4 rounded-[10px] w-full placeholder-black placeholder:text-sm outline-0"
+                />
+              </div>
+            </div>
+          </li>
+        </ul>
       </div>
 
       <div>
@@ -134,6 +163,26 @@ export default {
     const res = await $axios.$get(`https://turismo.catam.ar/api/v1/producto_turistico/${query.id}`)
     const data = res.data
     return { data }
+  },
+  data () {
+    return {
+      passengers: [
+        {
+          nombre: null,
+          apellido: null,
+          dni: null
+        }
+      ]
+    }
+  },
+  methods: {
+    addPassenger () {
+      this.passengers.push({
+        nombre: null,
+        apellido: null,
+        dni: null
+      })
+    }
   }
 }
 </script>
