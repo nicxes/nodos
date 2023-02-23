@@ -1,11 +1,7 @@
 <template>
-  <header class="Header pt-7 md:pt-0 md:mt-0">
-    <div class="bg-[#ddd] h-[480px] hidden md:block">
-      <img src="" alt=""/>
-    </div>
-
-    <div class="container mx-auto md:h-[200px]">
-      <div class="Search bg-[#F1EDE3] py-7 md:py-12 px-4 md:px-11 relative md:top-[-150px] rounded-3xl">
+  <header class="Header bg-[#69B764] py-12">
+    <div class="container mx-auto">
+      <div class="Search bg-[#F1EDE3] py-7 md:py-12 px-4 md:px-11 rounded-3xl shadow">
         <h3 class="text-[#226B2F] text-xl md:text-2xl text-center font-bold mb-4">
           ¿Estás buscando alojamiento?
         </h3>
@@ -18,7 +14,7 @@
             <v-date-picker
               v-model="range"
               color="green"
-              mode="dateTime"
+              mode="date"
               locale="es-AR"
               :masks="masks"
               is-range
@@ -84,7 +80,7 @@ export default {
         end: null
       },
       masks: {
-        input: 'YYYY-MM-DD h:mm A'
+        input: 'DD-MM-YYYY'
       }
     }
   },

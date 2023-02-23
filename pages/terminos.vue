@@ -25,3 +25,11 @@
     </div>
   </section>
 </template>
+
+<script>
+export default {
+  head: {
+    title: 'Términos y condiciones'
+  }
+}
+</script>

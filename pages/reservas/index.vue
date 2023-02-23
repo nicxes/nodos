@@ -56,6 +56,9 @@ export default {
       id: null,
       dni: null
     }
+  },
+  head: {
+    title: 'Mi Reserva'
   }
 }
 </script>

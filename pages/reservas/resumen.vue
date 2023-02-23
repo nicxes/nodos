@@ -36,7 +36,7 @@
               type="text"
               class="bg-white px-3 py-4 rounded-[10px] w-full placeholder-black placeholder:text-sm outline-0"
               required
-            />
+            >
           </div>
 
           <div>
@@ -45,7 +45,7 @@
               type="text"
               class="bg-white px-3 py-4 rounded-[10px] w-full placeholder-black placeholder:text-sm outline-0"
               required
-            />
+            >
           </div>
 
           <div>
@@ -54,7 +54,7 @@
               type="number"
               class="bg-white px-3 py-4 rounded-[10px] w-full placeholder-black placeholder:text-sm outline-0"
               required
-            />
+            >
           </div>
 
           <div>
@@ -62,7 +62,7 @@
               placeholder="Teléfono celular"
               type="number"
               class="bg-white px-3 py-4 rounded-[10px] w-full placeholder-black placeholder:text-sm outline-0"
-            />
+            >
           </div>
 
           <div>
@@ -70,7 +70,7 @@
               placeholder="Correo electrónico"
               type="email"
               class="bg-white px-3 py-4 rounded-[10px] w-full placeholder-black placeholder:text-sm outline-0"
-            />
+            >
           </div>
 
           <div>
@@ -78,7 +78,7 @@
               placeholder="Domicilio (Calle y Número)"
               type="text"
               class="bg-white px-3 py-4 rounded-[10px] w-full placeholder-black placeholder:text-sm outline-0"
-            />
+            >
           </div>
 
           <div>
@@ -86,7 +86,7 @@
               placeholder="Ciudad"
               type="text"
               class="bg-white px-3 py-4 rounded-[10px] w-full placeholder-black placeholder:text-sm outline-0"
-            />
+            >
           </div>
 
           <div>
@@ -94,7 +94,7 @@
               placeholder="Provincia"
               type="text"
               class="bg-white px-3 py-4 rounded-[10px] w-full placeholder-black placeholder:text-sm outline-0"
-            />
+            >
           </div>
         </div>
       </div>
@@ -105,7 +105,7 @@
             Otros Pasajeros
           </h3>
 
-          <button @click="addPassenger" class="text-[#226B2F] font-bold cursor-pointer">
+          <button class="text-[#226B2F] font-bold cursor-pointer" @click="addPassenger">
             +
           </button>
         </div>
@@ -121,7 +121,7 @@
                   placeholder="Nombre"
                   type="text"
                   class="bg-white px-3 py-4 rounded-[10px] w-full placeholder-black placeholder:text-sm outline-0"
-                />
+                >
               </div>
               <div>
                 <input
@@ -129,7 +129,7 @@
                   placeholder="Apellido"
                   type="text"
                   class="bg-white px-3 py-4 rounded-[10px] w-full placeholder-black placeholder:text-sm outline-0"
-                />
+                >
               </div>
               <div>
                 <input
@@ -137,7 +137,7 @@
                   placeholder="DNI"
                   type="number"
                   class="bg-white px-3 py-4 rounded-[10px] w-full placeholder-black placeholder:text-sm outline-0"
-                />
+                >
               </div>
             </div>
           </li>
@@ -174,6 +174,9 @@ export default {
         }
       ]
     }
+  },
+  head: {
+    title: 'Solicitud de Reserva'
   },
   methods: {
     addPassenger () {
