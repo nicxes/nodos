@@ -29,16 +29,10 @@
               <li class="text-lg">
                 Pasajeros:
                 <span class="font-bold">
-                  {{ $store.getters["cart/getCart"].passengers ? $store.getters["cart/getCart"].passengers : '1' }}
+                  {{ $store.getters["cart/getCart"].passengers ? `${$store.getters["cart/getCart"].passengers.adults} Adultos - ${$store.getters["cart/getCart"].passengers.kids} Niños` : '-' }}
                 </span>
               </li>
             </ul>
-
-            <div>
-              <button class="bg-[#35BC75] text-center text-white px-3 py-2 rounded-[10px]">
-                Modificar
-              </button>
-            </div>
           </div>
         </div>
       </div>
@@ -89,6 +83,9 @@
 
 <script>
 export default {
+  head: {
+    title: 'Alojamientos'
+  },
   data () {
     return {
       data: []
