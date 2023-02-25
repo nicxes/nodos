@@ -76,7 +76,7 @@
                     <h4 class="text-xl font-bold mb-3">
                       {{ data.attributes.name }}
                     </h4>
-                    <p class="text-sm mb-5">
+                    <p class="text-sm mb-5 min-h-[70px]">
                       {{ data.attributes.description }}
                     </p>
                   </div>
@@ -87,50 +87,6 @@
                     </h5>
 
                     <button @click="addReservartion" type="button" class="text-white text-[15px] font-bold bg-[#35BC75] px-3 py-3 rounded-[10px]">
-                      Elegir esta opción
-                    </button>
-                  </div>
-                </article>
-              </div>
-              <div class="swiper-slide">
-                <article class="bg-[#F7F7F7] p-4">
-                  <h4 class="text-xl font-bold mb-3">
-                    Habitación Deluxe para 2
-                  </h4>
-                  <p class="text-sm mb-5">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam quis tempor nulla.
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam quis tempor nulla.
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam quis tempor nulla.
-                  </p>
-
-                  <div class="grid grid-cols-2 items-center">
-                    <h5 class="text-sm">
-                      Precio sugerido desde <b>$15.000 por noche</b>
-                    </h5>
-
-                    <button type="button" class="text-white text-[15px] font-bold bg-[#35BC75] px-3 py-3 rounded-[10px]">
-                      Elegir esta opción
-                    </button>
-                  </div>
-                </article>
-              </div>
-              <div class="swiper-slide">
-                <article class="bg-[#F7F7F7] p-4">
-                  <h4 class="text-xl font-bold mb-3">
-                    Habitación Deluxe para 2
-                  </h4>
-                  <p class="text-sm mb-5">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam quis tempor nulla.
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam quis tempor nulla.
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam quis tempor nulla.
-                  </p>
-
-                  <div class="grid grid-cols-2 items-center">
-                    <h5 class="text-sm">
-                      Precio sugerido desde <b>$15.000 por noche</b>
-                    </h5>
-
-                    <button type="button" class="text-white text-[15px] font-bold bg-[#35BC75] px-3 py-3 rounded-[10px]">
                       Elegir esta opción
                     </button>
                   </div>
