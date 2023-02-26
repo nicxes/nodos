@@ -10,7 +10,7 @@
             Servicios contratados
           </h3>
           <h4 class="text-sm font-semibold mb-4">
-            Nombre del alojamiento
+            {{ data.attributes.producto_turistico.objeto.attributes.name }}
           </h4>
           <ul>
             <li>
@@ -32,28 +32,37 @@
         </h3>
         <p class="text-sm font-medium mb-4">
           {{ data.attributes.producto_turistico.objeto.attributes.name }}
+          <span v-if="alojamiento && alojamiento.attributes.legal_name">
+            - {{ alojamiento.attributes.legal_name }}
+          </span>
         </p>
-        <p class="text-sm font-medium mb-4">
-          Teléfono:
+        <p v-if="getPhoneFromAlojamiento" class="text-sm font-medium mb-4">
+          Teléfono: {{ getPhoneFromAlojamiento.contact_point }}
         </p>
-        <p class="text-sm font-medium mb-7">
+        <p v-if="getWappFromAlojamiento" class="text-sm font-medium mb-4">
+          Whatsapp: {{ getWappFromAlojamiento.contact_point }}
+        </p>
+        <p v-if="alojamiento && alojamiento.attributes.correos_electronicos.length" class="text-sm font-medium mb-7">
           Correo electrónico:
+          <span v-for="(email, index) in alojamiento.attributes.correos_electronicos" :key="index">
+            - {{ email.contact_point }}
+          </span>
         </p>
         <ul class="grid gap-3">
-          <li>
-            <button type="button" class="font-display text-center text-sm text-white font-semibold bg-[#35BC75] rounded-[10px] w-full py-4">
+          <li v-if="getPhoneFromAlojamiento">
+            <a :href="getPhoneFromAlojamiento.contact_point" type="button" class="font-display text-center text-sm text-white font-semibold bg-[#35BC75] rounded-[10px] w-full py-4">
               Llamar
-            </button>
+            </a>
           </li>
-          <li>
-            <button type="button" class="font-display text-center text-sm text-white font-semibold bg-[#35BC75] rounded-[10px] w-full py-4">
+          <li v-if="getWappFromAlojamiento">
+            <a :href="`https://wa.me/${getWappFromAlojamiento.contact_point}`" type="button" target="_blank" class="font-display text-center text-sm text-white font-semibold bg-[#35BC75] rounded-[10px] w-full py-4">
               Enviar WhatsApp
-            </button>
+            </a>
           </li>
-          <li>
-            <button type="button" class="font-display text-center text-sm text-white font-semibold bg-[#35BC75] rounded-[10px] w-full py-4">
+          <li v-if="alojamiento && alojamiento.attributes.correos_electronicos[0] && alojamiento.attributes.correos_electronicos[0].contact_point">
+            <a :href="alojamiento.attributes.correos_electronicos[0].contact_point" type="button" class="font-display text-center text-sm text-white font-semibold bg-[#35BC75] rounded-[10px] w-full py-4">
               Enviar Correo
-            </button>
+            </a>
           </li>
         </ul>
       </div>
@@ -83,13 +92,23 @@ export default {
   data () {
     return {
       numAdults: 1,
-      numKids: 0
+      numKids: 0,
+      alojamiento: null
+    }
+  },
+  computed: {
+    getWappFromAlojamiento () {
+      return this.alojamiento ? this.alojamiento.attributes.telefonos.find(phone => phone.type === 'wsp') : null
+    },
+    getPhoneFromAlojamiento () {
+      return this.alojamiento ? this.alojamiento.attributes.telefonos.find(phone => phone.type === 'fijo') : null
     }
   },
   head: {
     title: 'Mi reserva'
   },
   created () {
+    this.getAlojamiento()
     this.countAdultsAndKids()
   },
   methods: {
@@ -99,6 +118,15 @@ export default {
       const month = (date.getMonth() + 1).toString().padStart(2, '0')
       const year = date.getFullYear().toString()
       return `${day}/${month}/${year}`
+    },
+    getAlojamiento () {
+      this.$axios.$get(`https://turismo.catam.ar/api/v1/alojamiento/${this.data.attributes.producto_turistico.objeto.id}`)
+        .then((res) => {
+          this.alojamiento = res.data
+        })
+        .catch((err) => {
+          console.log(err)
+        })
     },
     countAdultsAndKids () {
       let numAdults = 0
