@@ -3,8 +3,8 @@ export const state = () => ({
     start: null,
     end: null,
     passengers: {
-      adults: null,
-      kids: null
+      adults: 1,
+      kids: 0
     }
   }
 })
