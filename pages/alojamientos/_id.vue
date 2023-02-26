@@ -110,6 +110,9 @@ export default {
     const data = res.data
     return { data }
   },
+  head: {
+    title: 'Alojamiento'
+  },
   async mounted () {
     await this.$nextTick()
     new Swiper(this.$refs.swiper, {
