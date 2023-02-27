@@ -21,5 +21,9 @@ export const getters = {
 export const mutations = {
   setCart (state, data) {
     state.cart = data
+  },
+  setDates (state, data) {
+    state.cart.start = data.start
+    state.cart.end = data.end
   }
 }

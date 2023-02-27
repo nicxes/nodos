@@ -36,6 +36,53 @@
       <form @submit.prevent="handleSubmit">
         <div class="bg-[#F7F7F7] p-4 mb-3">
           <h3 class="text-[#226B2F] font-bold mb-3">
+            Fecha de reserva
+          </h3>
+          <p class="text-sm mb-2.5">
+            Confirma la fecha de tu reserva
+          </p>
+
+          <div class="grid grid-cols-1 gap-2.5">
+            <div>
+              <v-date-picker
+                v-model="range"
+                color="green"
+                mode="date"
+                locale="es-AR"
+                :masks="masks"
+                is-range
+              >
+                <template v-slot="{ inputValue, inputEvents }">
+                  <div class="grid grid-cols-2 gap-2 md:gap-4">
+                    <div>
+                      <input
+                        placeholder="Fecha de entrada"
+                        class="text-sm font-semibold py-4 px-4 rounded-[10px] block w-full outline-0 placeholder:text-sm placeholder:text-[#2A2D34] placeholder:font-normal"
+                        :value="inputValue.start"
+                        v-on="inputEvents.start"
+                        @change="handleDates"
+                        required
+                      />
+                    </div>
+                    <div>
+                      <input
+                        placeholder="Fecha de salida"
+                        class="text-sm font-semibold py-4 px-4 rounded-[10px] block w-full outline-0 placeholder:text-sm placeholder:text-[#2A2D34] placeholder:font-normal"
+                        :value="inputValue.end"
+                        v-on="inputEvents.end"
+                        @change="handleDates"
+                        required
+                      />
+                    </div>
+                  </div>
+                </template>
+              </v-date-picker>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-[#F7F7F7] p-4 mb-3">
+          <h3 class="text-[#226B2F] font-bold mb-3">
             Cargá tus datos
           </h3>
           <p class="text-sm mb-2.5">
@@ -189,6 +236,18 @@
                     required
                   >
                 </div>
+                <div>
+                  <label class="mt-2 flex items-center">
+                    <input
+                      v-model="passenger.is_children"
+                      type="checkbox"
+                      class="accent-[#35BC75] text-white"
+                    >
+                    <span class="text-sm ml-2">
+                      Si, esta persona es menor de edad.
+                    </span>
+                  </label>
+                </div>
               </div>
             </li>
           </ul>
@@ -218,6 +277,13 @@ export default {
   data () {
     return {
       loading: false,
+      range: {
+        start: this.$store.state.cart.cart.start,
+        end: this.$store.state.cart.cart.end
+      },
+      masks: {
+        input: 'DD-MM-YYYY'
+      },
       owner: {
         dni: null,
         firstname: null,
@@ -228,19 +294,25 @@ export default {
         address_state: null,
         birth_date: null
       },
-      passengers: [
-        {
-          nombre: null,
-          apellido: null,
-          documento_identidad: null
-        }
-      ]
+      passengers: []
     }
   },
   head: {
     title: 'Solicitud de Reserva'
   },
+  mounted () {
+    this.setQuantity()
+  },
   methods: {
+    setQuantity () {
+      const quantity = this.$store.getters['cart/getQuantity'] - 1
+
+      if (quantity > 0) {
+        for (let i = 0; i < quantity; i++) {
+          this.addPassenger()
+        }
+      }
+    },
     formatDate (date) {
       const day = date.getDate().toString().padStart(2, '0')
       const month = (date.getMonth() + 1).toString().padStart(2, '0')
@@ -251,11 +323,15 @@ export default {
       this.passengers.push({
         nombre: null,
         apellido: null,
-        documento_identidad: null
+        documento_identidad: null,
+        is_children: false
       })
     },
     removePassenger () {
       this.passengers.pop()
+    },
+    handleDates () {
+      this.$store.commit('cart/setDates', this.range)
     },
     handleSubmit () {
       this.loading = true
@@ -323,3 +399,9 @@ export default {
   }
 }
 </script>
+
+<style scoped>
+input[type="checkbox"]:checked:before{
+  background-color: #35BC75;
+}
+</style>
