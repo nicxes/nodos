@@ -1,7 +1,7 @@
 <template>
   <section class="py-8 md:py-12">
     <div class="container mx-auto">
-      <h3 class="font-input text-2xl font-semibold mb-9">
+      <h3 class="font-input text-2xl font-semibold mb-6">
         Novedades
       </h3>
 
@@ -9,13 +9,8 @@
         <div ref="swiper" class="swiper">
           <div class="swiper-wrapper">
             <div class="swiper-slide">
-              <img src="https://http2.mlstatic.com/D_NQ_725937-MLA54006815448_022023-OO.webp" class="w-full">
-            </div>
-            <div class="swiper-slide">
-              <img src="https://http2.mlstatic.com/D_NQ_804010-MLA54010967293_022023-OO.webp" class="w-full">
-            </div>
-            <div class="swiper-slide">
-              <img src="https://i.imgur.com/HuwMMfA.png" class="w-full">
+              <img src="~assets/images/desktop.png" class="hidden md:block w-full rounded-[10px]">
+              <img src="~assets/images/mobile.png" class="block md:hidden w-full rounded-[10px]">
             </div>
           </div>
         </div>
