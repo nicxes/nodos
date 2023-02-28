@@ -6,20 +6,39 @@
       </h1>
       <div class="flex flex-col gap-4 text-sm md:text-base">
         <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque placerat tristique scelerisque. Duis viverra, nisl et pulvinar mattis, elit ipsum rutrum nisi, in congue quam mauris eget ante. Ut augue nisi, cursus ut magna eu, dapibus mollis nulla. Nunc nulla nisi, posuere at eros ut, pharetra imperdiet elit. Aliquam dignissim arcu vitae nulla varius, at dignissim elit venenatis. Pellentesque ornare ipsum non pharetra posuere. Pellentesque et faucibus mi. Etiam viverra magna et sapien feugiat sodales. Nulla facilisi. Cras facilisis dui sit amet dapibus faucibus. Curabitur at mi a lectus elementum tincidunt. Vivamus tempor diam non mauris fringilla scelerisque. Integer fermentum facilisis tortor vitae egestas. Phasellus placerat lorem sed eros bibendum gravida in sed est. Curabitur velit nibh, gravida quis orci quis, finibus fringilla sapien.
-          Suspendisse turpis sem, vulputate eu sapien ut, hendrerit ullamcorper enim. Duis dolor eros, pellentesque a ex tristique, vulputate posuere nulla. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Mauris eu magna eu nisi suscipit maximus. In hac habitasse platea dictumst. Nulla facilisi. Cras gravida lacus eget auctor volutpat. Curabitur eu pharetra sapien. Suspendisse lacinia lacinia elit id sollicitudin. Vestibulum sed elementum velit, ut tincidunt velit. Sed vestibulum erat neque, id facilisis mi suscipit ac. Maecenas porttitor urna ut ultricies bibendum.
-        </p>
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque placerat tristique scelerisque. Duis viverra, nisl et pulvinar mattis, elit ipsum rutrum nisi, in congue quam mauris eget ante. Ut augue nisi, cursus ut magna eu, dapibus mollis nulla. Nunc nulla nisi, posuere at eros ut, pharetra imperdiet elit. Aliquam dignissim arcu vitae nulla varius, at dignissim elit venenatis. Pellentesque ornare ipsum non pharetra posuere. Pellentesque et faucibus mi. Etiam viverra magna et sapien feugiat sodales. Nulla facilisi. Cras facilisis dui sit amet dapibus faucibus. Curabitur at mi a lectus elementum tincidunt. Vivamus tempor diam non mauris fringilla scelerisque. Integer fermentum facilisis tortor vitae egestas. Phasellus placerat lorem sed eros bibendum gravida in sed est. Curabitur velit nibh, gravida quis orci quis, finibus fringilla sapien.
-          Suspendisse turpis sem, vulputate eu sapien ut, hendrerit ullamcorper enim. Duis dolor eros, pellentesque a ex tristique, vulputate posuere nulla. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Mauris eu magna eu nisi suscipit maximus. In hac habitasse platea dictumst. Nulla facilisi. Cras gravida lacus eget auctor volutpat. Curabitur eu pharetra sapien. Suspendisse lacinia lacinia elit id sollicitudin. Vestibulum sed elementum velit, ut tincidunt velit. Sed vestibulum erat neque, id facilisis mi suscipit ac. Maecenas porttitor urna ut ultricies bibendum.
-        </p>
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque placerat tristique scelerisque. Duis viverra, nisl et pulvinar mattis, elit ipsum rutrum nisi, in congue quam mauris eget ante. Ut augue nisi, cursus ut magna eu, dapibus mollis nulla. Nunc nulla nisi, posuere at eros ut, pharetra imperdiet elit. Aliquam dignissim arcu vitae nulla varius, at dignissim elit venenatis. Pellentesque ornare ipsum non pharetra posuere. Pellentesque et faucibus mi. Etiam viverra magna et sapien feugiat sodales. Nulla facilisi. Cras facilisis dui sit amet dapibus faucibus. Curabitur at mi a lectus elementum tincidunt. Vivamus tempor diam non mauris fringilla scelerisque. Integer fermentum facilisis tortor vitae egestas. Phasellus placerat lorem sed eros bibendum gravida in sed est. Curabitur velit nibh, gravida quis orci quis, finibus fringilla sapien.
-          Suspendisse turpis sem, vulputate eu sapien ut, hendrerit ullamcorper enim. Duis dolor eros, pellentesque a ex tristique, vulputate posuere nulla. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Mauris eu magna eu nisi suscipit maximus. In hac habitasse platea dictumst. Nulla facilisi. Cras gravida lacus eget auctor volutpat. Curabitur eu pharetra sapien. Suspendisse lacinia lacinia elit id sollicitudin. Vestibulum sed elementum velit, ut tincidunt velit. Sed vestibulum erat neque, id facilisis mi suscipit ac. Maecenas porttitor urna ut ultricies bibendum.
-        </p>
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque placerat tristique scelerisque. Duis viverra, nisl et pulvinar mattis, elit ipsum rutrum nisi, in congue quam mauris eget ante. Ut augue nisi, cursus ut magna eu, dapibus mollis nulla. Nunc nulla nisi, posuere at eros ut, pharetra imperdiet elit. Aliquam dignissim arcu vitae nulla varius, at dignissim elit venenatis. Pellentesque ornare ipsum non pharetra posuere. Pellentesque et faucibus mi. Etiam viverra magna et sapien feugiat sodales. Nulla facilisi. Cras facilisis dui sit amet dapibus faucibus. Curabitur at mi a lectus elementum tincidunt. Vivamus tempor diam non mauris fringilla scelerisque. Integer fermentum facilisis tortor vitae egestas. Phasellus placerat lorem sed eros bibendum gravida in sed est. Curabitur velit nibh, gravida quis orci quis, finibus fringilla sapien.
-          Suspendisse turpis sem, vulputate eu sapien ut, hendrerit ullamcorper enim. Duis dolor eros, pellentesque a ex tristique, vulputate posuere nulla. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Mauris eu magna eu nisi suscipit maximus. In hac habitasse platea dictumst. Nulla facilisi. Cras gravida lacus eget auctor volutpat. Curabitur eu pharetra sapien. Suspendisse lacinia lacinia elit id sollicitudin. Vestibulum sed elementum velit, ut tincidunt velit. Sed vestibulum erat neque, id facilisis mi suscipit ac. Maecenas porttitor urna ut ultricies bibendum.
+          Senti Posadas, persona jurídica de derecho privado describe, a través de este documento, las normas de uso del sitio [sentiposadas.com.ar](http://sentiposadas.com.ar/) y de cualquier otro sitio web, tienda o aplicación operada por el titular.</p>
+
+          Al navegar por este sitio web, consideramos que está de acuerdo con las condiciones de uso que figuran a continuación.
+
+          Si no está de acuerdo con los términos de este acuerdo, le pedimos que no haga ningún otro uso de este sitio web, mucho menos que se registre o envíe sus datos personales.
+
+          Si cambiamos nuestras condiciones de uso, publicaremos el nuevo texto en este sitio web, con una fecha de revisión actualizada. Podemos modificar este documento en cualquier momento.
+
+          Si hay un cambio significativo en los términos de este acuerdo, podemos informarle utilizando la información de contacto que tenemos en nuestra base de datos o mediante una notificación.
+
+          El uso de este sitio web después de los cambios significa que usted acepta las condiciones de uso revisadas. Si, después de leer la versión revisada, no está de acuerdo con sus términos, por favor, termine su acceso.
+
+          **Usuario**
+          El uso de este sitio web le otorga automáticamente la condición de Usuario e implica su plena aceptación de todas las directrices y condiciones incluidas en estas Condiciones.
+
+          **Adhesión junto con la política de privacidad**
+          El uso de este sitio web implica la adhesión a estas Condiciones de Uso y a la versión más actualizada de la Política de Privacidad de Senti Posadas.
+
+          **Condiciones de acceso**
+          En general, el acceso al sitio web de Senti Posadas es gratuito y no requiere registro previo.
+
+          Sin embargo, para hacer uso de algunas funcionalidades, el usuario puede necesitar registrarse, creando una cuenta de usuario con un nombre de usuario y una contraseña de acceso.
+
+          Es responsabilidad del usuario proporcionar únicamente información correcta, auténtica, válida, completa y actualizada, así como no revelar su nombre de usuario y contraseña a terceros.
+
+          Algunas partes de este sitio web ofrecen al usuario la opción de publicar comentarios en determinadas áreas.Senti Posadas no consiente la publicación de contenidos de carácter discriminatorio, ofensivo o ilícito, o que infrinjan los derechos de autor o cualquier otro derecho de terceros.
+
+          La publicación de cualquier contenido por parte del usuario de este sitio web, incluidos los mensajes y comentarios, implica una licencia no exclusiva, irrevocable e irreversible para su uso, reproducción y publicación por parte de Senti Posadas en su sitio web, plataformas de internet y aplicaciones, o incluso en otras plataformas, sin ninguna restricción o limitación.
+
+          **Plazos y modificaciones**
+          El funcionamiento de este sitio web es por tiempo indefinido.
+
+          La totalidad del sitio web o cada una de sus secciones podrá ser cerrada, suspendida o interrumpida unilateralmente por Senti Posadas, en cualquier momento y sin previo aviso.
         </p>
       </div>
     </div>

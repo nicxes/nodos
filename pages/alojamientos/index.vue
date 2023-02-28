@@ -39,7 +39,7 @@
 
       <div class="grid md:grid-cols-[300px_auto]">
         <div class="text-transparent">
-          1
+          <br/>
         </div>
         <ul class="grid grid-cols-1 gap-4">
           <li v-for="(item, index) in data" :key="index">
@@ -59,7 +59,7 @@
                 </h5>
                 <div class="flex justify-end md:hidden">
                   <NuxtLink :to="`/alojamientos/${item.id}`" class="bg-[#35BC75] text-center text-white inline-block px-4 py-2 rounded-[10px]">
-                    Ver opciones desde<br/>
+                    Ver esta opción desde<br/>
                     <b>{{ item.attributes.price_currency }} ${{ roundNumber(item.attributes.price) }}</b>
                   </NuxtLink>
                 </div>
@@ -70,7 +70,7 @@
                   <b class="text-base">{{ item.attributes.price_currency }}${{ roundNumber(item.attributes.price) }}</b>
                 </h6>
                 <NuxtLink :to="`/alojamientos/${item.id}`" class="bg-[#35BC75] text-center text-white font-bold inline-block px-3 py-2 rounded-[10px]">
-                  Ver opciones
+                  Ver opción
                 </NuxtLink>
               </div>
             </article>

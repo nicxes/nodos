@@ -20,7 +20,7 @@
 
         <ul class="flex items-center gap-6 hidden md:flex">
           <li>
-            <NuxtLink to="/" class="text-[#646464] hover:text-[#35BC75] transition duration-150 ease-in-out" active-class="text-[#35BC75]">
+            <NuxtLink to="/" class="text-[#646464] hover:text-[#35BC75] transition duration-150 ease-in-out" :class="$route.name === 'index' ? 'text-[#35BC75]' : null">
               Inicio
             </NuxtLink>
           </li>
@@ -52,7 +52,7 @@
 
           <div v-else>
             <h6 class="text-sm">
-              Alojamientos en <b>Posadas</b>
+              Servicios en <b>Posadas</b>
             </h6>
           </div>
         </div>

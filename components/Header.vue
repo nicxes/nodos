@@ -17,6 +17,7 @@
               mode="date"
               locale="es-AR"
               :masks="masks"
+              :min-date="new Date()"
               is-range
             >
               <template v-slot="{ inputValue, inputEvents }">
@@ -46,7 +47,12 @@
 
           <div class="col-span-2 md:col-span-1">
             <button @click.self="toggleDropdown" type="button" class="relative bg-white text-[#2A2D34] text-sm py-4 px-4 rounded-[10px] block w-full outline-0 text-left">
-              Pasajeros
+              <span v-if="showPassengers" class="text-sm font-semibold">
+                {{ passengers.adults }} Adultos - {{ passengers.kids }} Niños
+              </span>
+              <span v-else>
+                Pasajeros
+              </span>
               <div v-if="isDropdownOpen" class="absolute top-full left-0 z-10 bg-white rounded-b-[10px] w-full p-4 mt-[-10px]">
                 <div class="flex justify-between mb-2.5">
                   <b>Adultos</b>
@@ -121,13 +127,13 @@ export default {
   data () {
     return {
       isDropdownOpen: false,
+      showPassengers: false,
       passengers: {
-        adults: 0,
-        kids: 0
+        ...this.$store.state.cart.cart.passengers
       },
       range: {
-        start: null,
-        end: null
+        start: this.$store.state.cart.cart.start,
+        end: this.$store.state.cart.cart.end
       },
       masks: {
         input: 'DD-MM-YYYY'
@@ -137,6 +143,7 @@ export default {
   methods: {
     toggleDropdown () {
       this.isDropdownOpen = !this.isDropdownOpen
+      this.showPassengers = true
     },
     handleSubmit () {
       this.$store.commit('cart/setCart', {
@@ -152,7 +159,7 @@ export default {
       ++this.passengers.kids
     },
     removeAdult () {
-      if (this.passengers.adults > 0) {
+      if (this.passengers.adults > 1) {
         --this.passengers.adults
       }
     },

@@ -9,10 +9,10 @@
         <div ref="swiper" class="swiper">
           <div class="swiper-wrapper">
             <div class="swiper-slide">
-              <img src="https://i.imgur.com/HuwMMfA.png" class="w-full">
+              <img src="https://http2.mlstatic.com/D_NQ_725937-MLA54006815448_022023-OO.webp" class="w-full">
             </div>
             <div class="swiper-slide">
-              <img src="https://i.imgur.com/HuwMMfA.png" class="w-full">
+              <img src="https://http2.mlstatic.com/D_NQ_804010-MLA54010967293_022023-OO.webp" class="w-full">
             </div>
             <div class="swiper-slide">
               <img src="https://i.imgur.com/HuwMMfA.png" class="w-full">

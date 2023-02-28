@@ -127,7 +127,7 @@
               <input
                 v-model="owner.phone"
                 placeholder="Teléfono celular"
-                type="number"
+                type="tel"
                 class="bg-white px-3 py-4 rounded-[10px] w-full placeholder-black placeholder:text-sm outline-0"
                 :disabled="loading"
                 required
@@ -146,15 +146,26 @@
             </div>
 
             <div>
-              <input
+              <v-date-picker
                 v-model="owner.birth_date"
-                placeholder="Fecha de Nacimiento (DD-MM-YYYY)"
-                type="date"
-                pattern="DD-MM-YYYY"
-                class="bg-white px-3 py-4 rounded-[10px] w-full placeholder-black placeholder:text-sm outline-0"
-                :disabled="loading"
-                required
+                color="green"
+                mode="date"
+                locale="es-AR"
+                :masks="masks"
+                :max-date="new Date()"
               >
+                <template v-slot="{ inputValue, togglePopover }">
+                  <div>
+                    <input
+                      placeholder="Fecha de Nacimiento"
+                      class="text-sm font-semibold py-4 px-4 rounded-[10px] block w-full outline-0 placeholder:text-sm placeholder:text-[#2A2D34] placeholder:font-normal"
+                      :value="inputValue"
+                      @click="togglePopover"
+                      required
+                    />
+                  </div>
+                </template>
+              </v-date-picker>
             </div>
 
             <div>
@@ -169,14 +180,23 @@
             </div>
 
             <div>
-              <input
+              <select
                 v-model="owner.address_state"
                 placeholder="Provincia"
                 type="text"
                 class="bg-white px-3 py-4 rounded-[10px] w-full placeholder-black placeholder:text-sm outline-0"
-                :disabled="loading"
+                :disabled="loading || states.length === 0"
                 required
               >
+                <option :value="null" selected disabled>
+                  Provincia
+                </option>
+                <option v-for="(state, i) in states" :value="state.id" :key="i">
+                  <span class="text-capitalize">
+                    {{ state.attributes.nombre }}
+                  </span>
+                </option>
+              </select>
             </div>
           </div>
         </div>
@@ -255,7 +275,7 @@
 
         <div>
           <p class="text-[#2A2D34] text-center text-xs max-w-[297px] mx-auto mb-4">
-            <b>¡Importante!</b> Recordá que enviarás una solicitud de reserva al alojamiento seleccionado para las fechas deseadas. Se contactarán del alojamiento para continuar con el proceso de reservación.
+            <b>¡Importante!</b> Recordá que enviarás una solicitud de reserva al proveedor seleccionado para las fechas deseadas. Se contactarán para continuar con el proceso de reservación.
           </p>
 
           <button type="submit" class="bg-[#35BC75] text-sm text-white font-bold rounded-[10px] w-full py-3" :disabled="loading">
@@ -284,6 +304,7 @@ export default {
       masks: {
         input: 'DD-MM-YYYY'
       },
+      states: [],
       owner: {
         dni: null,
         firstname: null,
@@ -302,8 +323,20 @@ export default {
   },
   mounted () {
     this.setQuantity()
+    this.getStates()
   },
   methods: {
+    capitalizeWords (str) {
+      const words = str.split(' ')
+
+      const capitalizedWords = words.map((word) => {
+        return word.charAt(0).toUpperCase() + word.slice(1).toLowerCase()
+      })
+
+      const capitalizedStr = capitalizedWords.join(' ')
+
+      return capitalizedStr
+    },
     setQuantity () {
       const quantity = this.$store.getters['cart/getQuantity'] - 1
 
@@ -313,11 +346,30 @@ export default {
         }
       }
     },
+    getStates () {
+      this.$axios.$get('https://turismo.catam.ar/api/v1/ubicacion/?nombre=&parent_id=4650&parent_nombre=&tipo=PR')
+        .then((res) => {
+          const data = res.data
+
+          data.forEach((item) => {
+            item.attributes.nombre = this.capitalizeWords(item.attributes.nombre)
+          })
+
+          console.log(data)
+          this.states = data
+        })
+        .catch((err) => {
+          console.log(err)
+        })
+    },
     formatDate (date) {
       const day = date.getDate().toString().padStart(2, '0')
       const month = (date.getMonth() + 1).toString().padStart(2, '0')
       const year = date.getFullYear().toString()
       return `${day}/${month}/${year}`
+    },
+    formatBirthDate (date) {
+      return date.toISOString().slice(0, 10)
     },
     addPassenger () {
       this.passengers.push({
@@ -336,8 +388,8 @@ export default {
     handleSubmit () {
       this.loading = true
 
-      const startDate = this.$store.getters['cart/getCart'].start
-      const endDate = this.$store.getters['cart/getCart'].end
+      const startDate = this.range.start
+      const endDate = this.range.end
       const quantity = this.$store.getters['cart/getQuantity']
       const result = this.formatData(startDate, endDate, quantity, this.owner)
       const options = {
@@ -370,7 +422,7 @@ export default {
                 nombre: owner.firstname,
                 apellido: owner.lastname,
                 documento_identidad: owner.dni,
-                fecha_nacimiento: owner.birth_date,
+                fecha_nacimiento: this.formatBirthDate(owner.birth_date),
                 domicilio: owner.address_street,
                 correo_electronico: owner.email,
                 ubicacion: {
