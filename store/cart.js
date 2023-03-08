@@ -2,11 +2,13 @@ export const state = () => ({
   cart: {
     start: null,
     end: null,
+    date: null,
     passengers: {
       adults: 1,
       kids: 0
     }
-  }
+  },
+  type: 'alojamiento'
 })
 
 export const getters = {
@@ -25,5 +27,8 @@ export const mutations = {
   setDates (state, data) {
     state.cart.start = data.start
     state.cart.end = data.end
+  },
+  setType (state, data) {
+    state.type = data
   }
 }

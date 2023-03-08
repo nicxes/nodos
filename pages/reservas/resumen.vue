@@ -9,8 +9,11 @@
           {{ data.attributes.objeto.attributes.name }}
         </h5>
         <ul class="text-[#2A2D34] text-sm grid gap-[4px]">
-          <li>
+          <li v-if="data.attributes.objeto.target === 'Alojamiento'">
             Desde: <b>{{ $store.getters["cart/getCart"].start ? formatDate($store.getters["cart/getCart"].start) : '-' }}</b> | Hasta: <b>{{ $store.getters["cart/getCart"].end ? formatDate($store.getters["cart/getCart"].end) : '-' }}</b>
+          </li>
+          <li v-else>
+            Fecha de entrada: <b>{{ $store.getters["cart/getCart"].date ? formatDate($store.getters["cart/getCart"].date) : '-' }}</b>
           </li>
           <li>
             Pasajeros:
@@ -43,7 +46,7 @@
           </p>
 
           <div class="grid grid-cols-1 gap-2.5">
-            <div>
+            <div v-if="data.attributes.objeto.target === 'Alojamiento'">
               <v-date-picker
                 v-model="range"
                 color="green"
@@ -75,6 +78,26 @@
                       />
                     </div>
                   </div>
+                </template>
+              </v-date-picker>
+            </div>
+
+            <div v-else>
+              <v-date-picker
+                v-model="range.start"
+                color="green"
+                mode="date"
+                locale="es-AR"
+                :masks="masks"
+              >
+                <template v-slot="{ inputValue, togglePopover }">
+                  <input
+                    placeholder="Fecha de entrada"
+                    class="text-sm font-semibold py-4 px-4 rounded-[10px] block w-full outline-0 placeholder:text-sm placeholder:text-[#2A2D34] placeholder:font-normal"
+                    :value="inputValue"
+                    @click="togglePopover"
+                    required
+                  />
                 </template>
               </v-date-picker>
             </div>
@@ -297,8 +320,9 @@ export default {
   data () {
     return {
       loading: false,
+      date: this.$store.state.cart.cart.date,
       range: {
-        start: this.$store.state.cart.cart.start,
+        start: this.$store.state.cart.cart.start || this.$store.state.cart.cart.date,
         end: this.$store.state.cart.cart.end
       },
       masks: {

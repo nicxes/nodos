@@ -1,18 +1,38 @@
 <template>
   <header class="Header bg-[#69B764] py-12">
     <div class="container mx-auto">
-      <div class="Search bg-[#F1EDE3] py-7 md:py-12 px-4 md:px-11 rounded-3xl shadow">
-        <h3 class="text-[#226B2F] text-xl md:text-2xl text-center font-bold mb-4">
-          ¿Estás buscando alojamiento?
-        </h3>
-        <p class="text-center mb-7">
-          Encontrá la mejor opción para hospedarte en <b>Posadas</b>
-        </p>
+      <ul class="grid grid-cols-2 bg-[#F1EDE3] rounded-t-3xl">
+        <li @click="type = 'alojamiento'" class="text-[#226B2F] text-lg font-semibold text-center py-4 rounded-tl-[16px] transition duration-150 ease-in-out cursor-pointer" :class="type !== 'alojamiento' ? 'opacity-40' : 'bg-[rgba(255,255,255,0.4)]'">
+          Alojamientos
+        </li>
+        <li @click="type = 'atractivo_turistico'" class="text-[#226B2F] text-lg font-semibold text-center py-4 rounded-tr-[16px] transition duration-150 ease-in-out cursor-pointer" :class="type !== 'atractivo_turistico' ? 'opacity-40' : 'bg-[rgba(255,255,255,0.4)]'">
+          Actividades
+        </li>
+      </ul>
 
-        <form @submit.prevent="handleSubmit" class="max-w-[800px] mx-auto grid grid-cols-1 md:grid-cols-3 gap-y-4 md:gap-x-4 font-display">
-          <div class="md:col-span-2">
+      <div class="Search bg-[#F1EDE3] py-7 md:py-12 px-4 md:px-11 rounded-b-3xl shadow">
+        <div v-if="type === 'alojamiento'">
+          <h3 class="text-[#226B2F] text-xl md:text-2xl text-center font-bold mb-4">
+            ¿Estás buscando alojamiento?
+          </h3>
+          <p class="text-center mb-7">
+            Encontrá la mejor opción para hospedarte en <b>Posadas</b>
+          </p>
+        </div>
+
+        <div v-if="type === 'atractivo_turistico'">
+          <h3 class="text-[#226B2F] text-xl md:text-2xl text-center font-bold mb-4">
+            ¿Estás buscando actividades?
+          </h3>
+          <p class="text-center mb-7">
+            Encontrá las mejores actividades en <b>Posadas</b>
+          </p>
+        </div>
+
+        <form @submit.prevent="handleSubmit" class="max-w-[800px] mx-auto grid grid-cols-1 gap-y-4 md:gap-x-4 font-display" :class="type === 'alojamiento' ? 'md:grid-cols-3 max-w-[800px]' : 'md:grid-cols-2 max-w-[600px]'">
+          <div v-if="type === 'alojamiento'" class="md:col-span-2">
             <v-date-picker
-              v-model="range"
+              v-model="data.range"
               color="green"
               mode="date"
               locale="es-AR"
@@ -45,10 +65,31 @@
             </v-date-picker>
           </div>
 
+          <div v-if="type === 'atractivo_turistico'">
+            <v-date-picker
+              v-model="data.date"
+              color="green"
+              mode="date"
+              locale="es-AR"
+              :masks="masks"
+              :min-date="new Date()"
+            >
+              <template v-slot="{ inputValue, togglePopover }">
+                <input
+                  placeholder="Fecha"
+                  class="text-sm font-semibold py-4 px-4 rounded-[10px] block w-full outline-0 placeholder:text-sm placeholder:text-[#2A2D34] placeholder:font-normal"
+                  :value="inputValue"
+                  @click="togglePopover"
+                  required
+                />
+              </template>
+            </v-date-picker>
+          </div>
+
           <div class="col-span-2 md:col-span-1">
             <button @click.self="toggleDropdown" type="button" class="relative bg-white text-[#2A2D34] text-sm py-4 px-4 rounded-[10px] block w-full outline-0 text-left">
               <span v-if="showPassengers" class="text-sm font-semibold">
-                {{ passengers.adults }} Adultos - {{ passengers.kids }} Niños
+                {{ data.passengers.adults }} Adultos - {{ data.passengers.kids }} Niños
               </span>
               <span v-else>
                 Pasajeros
@@ -64,7 +105,7 @@
                     </button>
                     <div>
                       <input
-                        v-model="passengers.adults"
+                        v-model="data.passengers.adults"
                         type="number"
                         class="bg-white font-semibold text-center w-[31px] rounded-[6px] mx-3"
                       >
@@ -86,7 +127,7 @@
                     </button>
                     <div>
                       <input
-                        v-model="passengers.kids"
+                        v-model="data.passengers.kids"
                         type="number"
                         class="bg-white font-semibold text-center w-[31px] rounded-[6px] mx-3"
                       >
@@ -126,17 +167,21 @@
 export default {
   data () {
     return {
-      isDropdownOpen: false,
-      showPassengers: false,
-      passengers: {
-        ...this.$store.state.cart.cart.passengers
-      },
-      range: {
-        start: this.$store.state.cart.cart.start,
-        end: this.$store.state.cart.cart.end
-      },
       masks: {
         input: 'DD-MM-YYYY'
+      },
+      type: this.$store.state.cart.type || 'alojamiento',
+      isDropdownOpen: false,
+      showPassengers: false,
+      data: {
+        passengers: {
+          ...this.$store.state.cart.cart.passengers
+        },
+        range: {
+          start: this.$store.state.cart.cart.start,
+          end: this.$store.state.cart.cart.end
+        },
+        date: this.$store.state.cart.cart.date
       }
     }
   },
@@ -146,26 +191,35 @@ export default {
       this.showPassengers = true
     },
     handleSubmit () {
-      this.$store.commit('cart/setCart', {
-        passengers: this.passengers,
-        ...this.range
-      })
-      this.$router.push('/alojamientos')
+      if (this.type === 'alojamiento') {
+        this.$store.commit('cart/setCart', {
+          passengers: this.data.passengers,
+          ...this.data.range
+        })
+      } else {
+        this.$store.commit('cart/setCart', {
+          passengers: this.data.passengers,
+          date: this.data.date
+        })
+      }
+
+      this.$store.commit('cart/setType', this.type)
+      this.$router.push('/servicios')
     },
     addMoreAdults () {
-      ++this.passengers.adults
+      ++this.data.passengers.adults
     },
     addMoreKids () {
-      ++this.passengers.kids
+      ++this.data.passengers.kids
     },
     removeAdult () {
-      if (this.passengers.adults > 1) {
-        --this.passengers.adults
+      if (this.data.passengers.adults > 1) {
+        --this.data.passengers.adults
       }
     },
     removeKids () {
-      if (this.passengers.kids > 0) {
-        --this.passengers.kids
+      if (this.data.passengers.kids > 0) {
+        --this.data.passengers.kids
       }
     }
   }

@@ -2,7 +2,7 @@
   <div>
     <Navbar />
     <Navigation />
-    <main class="bg-[#FAFAFA]">
+    <main class="bg-[#FAFAFA] min-h-screen">
       <Nuxt />
     </main>
   </div>

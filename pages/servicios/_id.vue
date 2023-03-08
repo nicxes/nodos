@@ -3,7 +3,13 @@
     <div class="mb-4 md:container md:mx-auto md:max-w-[800px]">
       <client-only>
         <div ref="swiperImages" class="swiper">
-          <div class="swiper-wrapper">
+          <div v-if="alojamiento && alojamiento.attributes.contenidos.length" class="swiper-wrapper">
+            <div v-for="(images, i) in alojamiento.attributes.contenidos" :key="i" class="swiper-slide">
+              <img :src="images.file" class="md:rounded-b-3xl" />
+            </div>
+          </div>
+
+          <div v-else>
             <div class="swiper-slide">
               <img :src="data.attributes.objeto.attributes.image_url" class="md:rounded-b-3xl" />
             </div>
@@ -30,12 +36,12 @@
           </p>
         </div>
 
-        <div class="hidden bg-[#F7F7F7] p-4 mb-5">
+        <div v-if="alojamiento && alojamiento.attributes.conditions" class="bg-[#F7F7F7] p-4 mb-5">
           <h3 class="text-xl font-bold mb-3">
             Condiciones
           </h3>
           <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam quis tempor nulla. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.
+            {{ alojamiento.attributes.conditions }}
           </p>
         </div>
 
