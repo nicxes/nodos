@@ -13,13 +13,13 @@
             {{ data.attributes.producto_turistico.objeto.attributes.name }}
           </h4>
           <ul>
-            <li v-if="data.attributes.objeto.target === 'Alojamiento'">
+            <li v-if="data.attributes.producto_turistico.objeto.target === 'Alojamiento'">
               Desde: {{ formatDate(data.attributes.start_date) }}
             </li>
-            <li v-if="data.attributes.objeto.target === 'Alojamiento'">
+            <li v-if="data.attributes.producto_turistico.objeto.target === 'Alojamiento'">
               Hasta: {{ formatDate(data.attributes.end_date) }}
             </li>
-            <li v-if="data.attributes.objeto.target !== 'Alojamiento'">
+            <li v-if="data.attributes.producto_turistico.objeto.target !== 'Alojamiento'">
               Fecha: {{ formatDate(data.attributes.start_date) }}
             </li>
             <li>
