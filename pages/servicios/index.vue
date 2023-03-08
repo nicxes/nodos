@@ -48,7 +48,7 @@
           <h3 class="text-lg md:text-2xl text-[#226B2F] font-semibold mb-4">
             {{ $store.state.cart.type === 'alojamiento' ? 'Alojamientos' : 'Actividades' }}
             <span class="block text-black text-sm font-medium opacity-50">
-              {{ data.length ? `${data.length} Resultados` : 'Cargando' }}
+              {{ data ? `${data.length} Resultados` : 'Cargando' }}
             </span>
           </h3>
           <div class="mb-4">
