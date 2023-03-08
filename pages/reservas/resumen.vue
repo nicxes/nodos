@@ -413,7 +413,7 @@ export default {
       this.loading = true
 
       const startDate = this.range.start
-      const endDate = this.range.end
+      const endDate = this.data.attributes.objeto.target === 'Alojamiento' ? this.range.end : this.range.start
       const quantity = this.$store.getters['cart/getQuantity']
       const result = this.formatData(startDate, endDate, quantity, this.owner)
       const options = {
