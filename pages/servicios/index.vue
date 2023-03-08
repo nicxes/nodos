@@ -100,7 +100,7 @@
                   {{ item.attributes.objeto.attributes.description }}
                 </h5>
                 <div class="flex justify-end md:hidden">
-                  <NuxtLink :to="`/alojamientos/${item.id}`" class="bg-[#35BC75] text-center text-white inline-block px-4 py-2 rounded-[10px]">
+                  <NuxtLink :to="`/servicios/${item.id}`" class="bg-[#35BC75] text-center text-white inline-block px-4 py-2 rounded-[10px]">
                     Ver esta opción desde<br/>
                     <b>{{ item.attributes.price_currency }} ${{ roundNumber(item.attributes.price) }}</b>
                   </NuxtLink>
