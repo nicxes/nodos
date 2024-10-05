@@ -85,10 +85,10 @@
         </div>
         <ul class="grid grid-cols-1 gap-4">
           <li v-for="n in 15" :key="n">
-            <article class="relative bg-[#F7F7F7] rounded-3xl md:grid md:grid-cols-[210px_auto_170px] md:justify-between">
+            <article class="relative bg-[#F7F7F7] rounded-3xl md:grid md:grid-cols-[210px_auto_170px]">
               <div class="mb-3 md:m-0 md:h-full">
                 <img
-                  src=""
+                  src="https://placehold.co/600x400"
                   class="max-h-[132px] md:max-h-[inherit] h-full object-cover w-full"
                 />
               </div>
