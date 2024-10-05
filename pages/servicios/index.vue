@@ -84,34 +84,34 @@
           </div>
         </div>
         <ul class="grid grid-cols-1 gap-4">
-          <li v-for="(item, index) in data" :key="index">
+          <li v-for="n in 15" :key="n">
             <article class="relative bg-[#F7F7F7] rounded-3xl md:grid md:grid-cols-[210px_auto_170px] md:justify-between">
               <div class="mb-3 md:m-0 md:h-full">
                 <img
-                  :src="item.attributes.objeto.attributes.image_url"
+                  src=""
                   class="max-h-[132px] md:max-h-[inherit] h-full object-cover w-full"
                 />
               </div>
               <div class="px-4 pb-5 md:p-5">
                 <h4 class="text-xl text-[#2A2D34] font-bold mb-1.5">
-                  {{ item.attributes.objeto.attributes.name }}
+                  Example Title
                 </h4>
                 <h5 class="text-[#919191] text-sm mb-5">
-                  {{ item.attributes.objeto.attributes.description }}
+                  Example Description
                 </h5>
                 <div class="flex justify-end md:hidden">
-                  <NuxtLink :to="`/servicios/${item.id}`" class="bg-[#35BC75] text-center text-white inline-block px-4 py-2 rounded-[10px]">
+                  <NuxtLink :to="`/servicios/${n}`" class="bg-[#35BC75] text-center text-white inline-block px-4 py-2 rounded-[10px]">
                     Ver esta opción desde<br/>
-                    <b>{{ item.attributes.price_currency }} ${{ roundNumber(item.attributes.price) }}</b>
+                    <b>ARS ${{ roundNumber(87000) }}</b>
                   </NuxtLink>
                 </div>
               </div>
               <div class="hidden md:flex flex-col justify-between p-5">
                 <h6 class="text-center text-sm">
                   Desde<br/>
-                  <b class="text-base">{{ item.attributes.price_currency }}${{ roundNumber(item.attributes.price) }}</b>
+                  <b class="text-base">ARS ${{ roundNumber(76999) }}</b>
                 </h6>
-                <NuxtLink :to="`/servicios/${item.id}`" class="bg-[#35BC75] text-center text-white font-bold inline-block px-3 py-2 rounded-[10px]">
+                <NuxtLink :to="`/servicios/${n}`" class="bg-[#35BC75] text-center text-white font-bold inline-block px-3 py-2 rounded-[10px]">
                   Ver opción
                 </NuxtLink>
               </div>
